@@ -2,7 +2,7 @@ var gulp         = require('gulp');
 var sass         = require('gulp-sass');
 var rename       = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
-var minifyCSS    = require('gulp-minify-css');
+var cssnano      = require('gulp-cssnano');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 9',
@@ -17,7 +17,7 @@ gulp.task('sass', function() {
       .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
       .pipe(gulp.dest('./gulp-build/'))
       .pipe(rename({extname:'.min.css'}))
-      .pipe(minifyCSS())
+      .pipe(cssnano())
       .pipe(gulp.dest('./gulp-build/'))
 });
 
